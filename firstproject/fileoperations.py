@@ -60,11 +60,25 @@ for fileContent in readFile.readlines():
 print(fileSize/1024)
 print('End!')
 os.chdir(sourceDirectory)
+months = ['Feb','Mar','Apr']
 for amerFilename in os.listdir(sourceDirectory):
-    if amerFilename.__contains__('exe'):
+    if amerFilename.__contains__('content'):
+        statinfo = os.stat(amerFilename)
+        if (time.ctime(statinfo.st_mtime).__contains__('2017') and (time.ctime(statinfo.st_mtime).__contains__('Feb') or
+                                                                    time.ctime(statinfo.st_mtime).__contains__('Jan') or
+                                                                    time.ctime(statinfo.st_mtime).__contains__('Mar') or
+                                                                    time.ctime(statinfo.st_mtime).__contains__('Apr'))):
+            print(time.ctime(statinfo.st_mtime))
+            print("true")
+            os.unlink(amerFilename)
+    if (amerFilename.__contains__('apache') and amerFilename.__contains__('zip')) or amerFilename.__contains__('exe') or amerFilename.__contains__('msi'):
         print(time.ctime(os.path.getctime(amerFilename)))
         if not os.path.exists('C:\\EON\\software'+ '\\' + amerFilename):
             shutil.move(sourceDirectory + '\\' + amerFilename,'C:\\EON\\software')
             print('%s file moved to destination path' %amerFilename)
         else:
             print('%s is already present at destination' %amerFilename)
+            os.unlink(amerFilename)
+            print('extra file deleted!')
+    else:
+        print('No file present for this condition.')
