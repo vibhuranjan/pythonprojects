@@ -1,0 +1,13 @@
+                    High School Result
+
+
+
+Roll Number     0513554    Father Name    VINOD MOGHA    
+Name            RITIKA MOGHA    Mother Name    MANGLESH MOGHA    
+
+
+ENGLISH  061  030  091  A1  PASS  
+MATHEMATICS  057  030  087  A2     
+SCIENCE  059  030  089  A2     
+SOCIAL SCIENCE  053  030  083  A2     
+DRAWING  060  030  090  A2     
